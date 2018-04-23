@@ -1,0 +1,46 @@
+<!-- Will work as a line chart, column chart, bar chart, and area chart (and maybe more) by changing the chart type  -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Meat hygiene inspectors</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <!-- load jQuery -->
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+  <!-- load Highcharts, Highcharts-more, and modules -->
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/highcharts-more.js"></script>
+  <script src="https://code.highcharts.com/modules/data.js"></script>
+  <script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+</head>
+<body>
+        <script>
+        $.get('meat_inspectors_per_year.csv', function(csv) {
+              $('#container').highcharts({
+                  chart: {
+                      type: 'line'
+                  },
+                  data: {
+                      csv: csv
+                  },
+                  title: {
+                      text: 'Meat hygiene inspectors employed by the FSA'
+                  },
+                  yAxis: {
+                      title: {
+                          text: 'Units'
+                      }
+                  }
+              });
+            });
+        </script>
+
+        <!-- 3. Add the container -->
+        <div id="container" style="width: 600px; height: 400px; margin: 0 auto"></div>
+    </body>
+</html>
